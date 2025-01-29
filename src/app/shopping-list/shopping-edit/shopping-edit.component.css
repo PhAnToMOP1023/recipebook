@@ -1,0 +1,17 @@
+label {
+    color: #6CB4EE; /* Set a darker color for labels */
+    margin-bottom: 5px; /* Add space below the label */
+    
+}
+label:hover{
+    color: aquamarine;
+    text-shadow: 0 0 10px aquamarine, 0 0 20px aquamarine;
+}
+
+input{
+    background-color: #808080;
+    color: aquamarine;
+}
+input:hover{
+    background-color: aliceblue;
+}
