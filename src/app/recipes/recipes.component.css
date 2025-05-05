@@ -1,0 +1,28 @@
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .recipe-list {
+    flex: 1 1 100%;
+    order: 2; /* Default order for mobile: comes after details */
+  }
+  
+  .recipe-detail {
+    flex: 1 1 100%;
+    order: 1; /* Show details above in mobile */
+  }
+  
+  /* On medium screens and up, change to side-by-side */
+  @media (min-width: 768px) {
+    .recipe-list {
+      flex: 1 1 40%;
+      order: 1;
+    }
+  
+    .recipe-detail {
+      flex: 1 1 60%;
+      order: 2;
+    }
+  }
+  

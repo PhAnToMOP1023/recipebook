@@ -1,10 +1,19 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+    <!-- Logo / Brand -->
     <div class="navbar-header">
       <a routerLink="/" class="navbar-brand">Recipe Book</a>
+
+      <!-- Hamburger Menu (only visible on small screens) -->
+      <button type="button" class="navbar-toggle" (click)="isDrawerOpen = true">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
 
-    <div class="collapse navbar-collapse">
+    <!-- Desktop Navbar (only visible on large screens) -->
+    <div class="navbar-collapse normal-navbar" *ngIf="!isMobileView">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" *ngIf="isAuthenticated">
           <a routerLink="/recipes">Recipes</a>
@@ -13,27 +22,58 @@
           <a routerLink="/auth">Authenticate</a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/shopping-list">Shopping List</a>
+          <a routerLink="/shopping-list" *ngIf="isAuthenticated">Shopping List</a>
         </li>
       </ul>
+      
       <ul class="nav navbar-nav navbar-right">
+<!-- 
+        <li class="theme-switch-wrapper">
+          <label class="theme-switch">
+            <input type="checkbox" (change)="onToggleTheme()" />
+            <span class="slider round"></span>
+          </label>
+          <span class="toggle-label">Dark Mode</span>
+        </li> -->
+
+
         <li *ngIf="isAuthenticated">
           <a style="cursor: pointer;" (click)="onLogout()">Logout</a>
         </li>
         <li class="dropdown" appDropdown *ngIf="isAuthenticated">
-          <a style="cursor: pointer;" class="dropdown-toggle" role="button"
-            >Manage <span class="caret"></span
-          ></a>
+          <a style="cursor: pointer;" class="dropdown-toggle" role="button">
+            Manage <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li>
-              <a style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
-            </li>
-            <li>
-              <a style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
-            </li>
+            <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
+            <li><a style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a></li>
           </ul>
         </li>
       </ul>
     </div>
-  </div>
-</nav>
+
+    <!-- Side Drawer (mobile only) -->
+    <div class="side-drawer" [ngClass]="{ 'open': isDrawerOpen }">
+      <ul class="nav-list">
+        <li *ngIf="isAuthenticated"><a routerLink="/recipes" (click)="isDrawerOpen = false">Recipes</a></li>
+        <li *ngIf="!isAuthenticated"><a routerLink="/auth" (click)="isDrawerOpen = false">Authenticate</a></li>
+        <li *ngIf="isAuthenticated"><a routerLink="/shopping-list" (click)="isDrawerOpen = false">Shopping List</a></li>
+
+        <!-- <div class="theme-switch-wrapper">
+          <label class="theme-switch">
+            <input type="checkbox" (change)="onToggleTheme()" />
+            <span class="slider round"></span>
+          </label>
+          <span class="toggle-label">Dark Mode</span>
+        </div> -->
+
+        <li *ngIf="isAuthenticated"><a (click)="onLogout(); isDrawerOpen = false">Logout</a></li>
+        <li *ngIf="isAuthenticated" class="dropdown">
+          <a class="dropdown-toggle">Manage</a>
+          <ul class="dropdown-menu">
+            <li><a (click)="onSaveData(); isDrawerOpen = false">Save Data</a></li>
+            <li><a (click)="onFetchData(); isDrawerOpen = false">Fetch Data</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>

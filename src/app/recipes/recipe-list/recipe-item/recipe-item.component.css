@@ -1,15 +1,28 @@
 a{
-    background-color: #808080; ;
-    color: #6CB4EE;
+    
+    color: #EE82EE;
 }
 .pull-left .list-group-item-heading {
-    color: aquamarine; 
+    color:  #7e3ff2;
 }
-a:hover{
-    background-color: rgba(51, 51, 51, 0.5);
-    color: aquamarine;
+.list-group-item.clearfix{
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(200, 200, 255, 0.2);
+    box-shadow: 0 0 25px rgba(128, 0, 128, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+
 }
-.pull-left .list-group-item-heading:hover {
-    
-    color: #6CB4EE;
-}
+.recipe-card {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .recipe-card:hover {
+    transform: scale(1.03);
+  }
+  
+

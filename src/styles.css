@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+/* === 🌞 Light Theme Variables === */
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #ff4aba;
+    --primary-color: #ff6004;
+    --secondary-color: #6c757d;
+    --accent-color: #17a2b8;
+    --link-color: #007bff;
+    --hover-color: #ff1493;
+    --card-bg-color: #ffffff;
+    --input-bg-color: #ffffff;
+    --nav-bg-color: #ffffff;
+  }
+  
+  /* === 🌚 Dark Theme Variables === */
+  body.dark-theme {
+    --bg-color: #161616;
+    --text-color: #720e9e;
+    --primary-color: #00bfff;
+    --secondary-color: #888;
+    --accent-color: #00ffae;
+    --link-color: #00bfff;
+    --hover-color: #EE82EE;
+    --card-bg-color: #2c2c2c;
+    --input-bg-color: #333;
+    --border-color: #444;
+    --nav-bg-color: #2a2a2a;
+    --card-bg: rgba(24, 24, 32, 0.6); /* translucent dark */
+    --text-color: #f0eaff; /* soft lavender/white */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --hover-glow: 0 0 24px rgba(232, 94, 255, 0.25); /* neon purple-pink glow */
+  }
+
+  .dark-theme {
+    --background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
+    --text-color: #ffffff;
+    --accent-color: #e85eff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.15);
+    --hover-glow: 0 0 12px #e85eff80;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1rem;
+    color: var(--text-color);
+    box-shadow: var(--hover-glow);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 24px #e85effcc;
+    transform: scale(1.02);
+  }
+
+
+
+
+
+  

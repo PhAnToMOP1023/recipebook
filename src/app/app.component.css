@@ -1,6 +1,6 @@
 :host {
     display: block;
-    background-color: #808080; 
+    background-color: var(--bg-color);
     font-family: Arial, sans-serif;
     height: 200vh;
-  }
+}
